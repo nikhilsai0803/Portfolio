@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Nikhil Sai Sharma – Aspiring AI Developer</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <style>
   :root {
@@ -20,9 +20,9 @@
     --glass-border-hover: rgba(0,212,255,0.5);
     --text-primary: #e8f4ff;
     --text-secondary: #7a9bbd;
-    --font-display: 'Orbitron', monospace;
-    --font-body: 'Rajdhani', sans-serif;
-    --font-mono: 'Share Tech Mono', monospace;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
   }
   [data-theme="light"] {
     --dark-bg: #e8f0f8;
@@ -746,8 +746,8 @@
             <a href="tel:+919121789942" style="display:flex;align-items:center;gap:0.75rem;color:var(--neon-cyan);font-family:var(--font-mono);font-size:0.85rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--neon-cyan)'">
               <span style="font-size:1.1rem;">📞</span> +91 91217 89942
             </a>
-            <a href="mailto:nikhilsaisharma08@gmail.com" style="display:flex;align-items:center;gap:0.75rem;color:var(--neon-cyan);font-family:var(--font-mono);font-size:0.85rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--neon-cyan)'">
-              <span style="font-size:1.1rem;">✉️</span> nikhilsaisharma08@gmail.com
+            <a href="mailto:nikhilsaisharmavyjayanthula@gmail.com" style="display:flex;align-items:center;gap:0.75rem;color:var(--neon-cyan);font-family:var(--font-mono);font-size:0.85rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--neon-cyan)'">
+              <span style="font-size:1.1rem;">✉️</span> nikhilsaisharmavyjayanthula@gmail.com
             </a>
           </div>
         </div>
@@ -831,6 +831,18 @@ const featuredProjects = [
     tags:['Python','Scikit-learn','Pandas','ML'],
     github:'https://github.com/nikhilsai0803/UFC-Fight-Forecast'
   },
+  {
+    num:'P.04', title:'Unveiling Climate Change Dynamics', featured: true,
+    desc:'An exploratory data analysis project studying Earth surface temperature trends over time using GlobalTemperatures dataset. Applies statistical analysis and visualizations to uncover long-term climate change patterns and warming dynamics across regions.',
+    tags:['Python','Jupyter Notebook','Pandas','Data Analysis','Climate Data','EDA'],
+    github:'https://github.com/nikhilsai0803/unveiling-climate-change-dynamics-through-earth-surface-temperature-analysis',
+  },
+  {
+    num:'P.05', title:'Java Real-Time Mini Project',
+    desc:'A real-time Java mini project demonstrating core Java concepts including object-oriented programming, data structures, and practical application development with a focus on performance and clean code architecture.',
+    tags:['Java','OOP','Data Structures','Real-Time'],
+    github:'https://github.com/nikhilsai0803/JavaRealTimeMiniProject3',
+  },
 ];
 
 // ─── RENDER SKILLS ──────────────────────────────────────────────────────────
@@ -865,27 +877,8 @@ async function fetchGitHubProjects() {
       return { ...p, github: key ? repoMap[key] : p.github };
     });
 
-    // Add remaining GitHub repos (not already featured)
-    const featuredTitles = featuredProjects.map(p => p.title.toLowerCase().replace(/[^a-z0-9]/g,''));
-    let extraIdx = featuredProjects.length + 1;
-    repos.filter(r => !r.fork && r.name !== 'nikhilsai0803').forEach(r => {
-      const key = r.name.toLowerCase().replace(/[^a-z0-9]/g,'');
-      const alreadyFeatured = featuredTitles.some(t => t.includes(key) || key.includes(t.substring(0,6)));
-      if (!alreadyFeatured && extraIdx <= 6) {
-        allProjects.push({
-          num: `P.0${extraIdx}`,
-          title: r.name.replace(/-/g,' ').replace(/_/g,' '),
-          desc: r.description || 'A project from my GitHub — exploring new technologies and building practical solutions.',
-          tags: r.language ? [r.language] : ['GitHub'],
-          github: r.html_url,
-          featured: false
-        });
-        extraIdx++;
-      }
-    });
-
     grid.innerHTML = '';
-    allProjects.slice(0,6).forEach((p, i) => {
+    allProjects.slice(0,5).forEach((p, i) => {
       const el = document.createElement('div');
       el.className = `project-card reveal${p.featured ? ' featured' : ''}`;
       el.style.transitionDelay = `${i * 0.1}s`;
