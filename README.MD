@@ -77,7 +77,7 @@ npx serve .
 | | |
 |---|---|
 | 📞 Phone | [+91 91217 89942](tel:+919121789942) |
-| ✉️ Email | [nikhilsaisharma08@gmail.com](mailto:nikhilsaisharma08@gmail.com) |
+| ✉️ Email | [nikhilsaisharmvyjayanthula@gmail.com](mailto:nikhilsaisharmavyjayanthula@gmail.com) |
 | 🔗 LinkedIn | [nikhil-sai-sharma-vyjayanthula](https://www.linkedin.com/in/nikhil-sai-sharma-vyjayanthula-7a58561a0) |
 | 💻 GitHub | [nikhilsai0803](https://github.com/nikhilsai0803) |
 
