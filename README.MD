@@ -12,7 +12,7 @@
 
 A futuristic, neon-themed personal portfolio built with pure **HTML, CSS, and JavaScript** — no frameworks, no build tools. Deployed on Vercel with live GitHub project integration.
 
-Showcases my skills, projects, internship journey, and contact details as a final-year B.Tech (CSE - Data Science) student at Vaagdevi Engineering College, JNTUH.
+B.Tech (CSE - Data Science) student at Vaagdevi Engineering College, JNTUH.
 
 ---
 
