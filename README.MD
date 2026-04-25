@@ -1,6 +1,6 @@
 # 🚀 Nikhil Sai Sharma — Personal Portfolio
 
-> **Aspiring AI Developer | Final Year CSE (Data Science) | Fresher 2025**
+> **Aspiring AI Developer | CSE (Data Science) | Fresher 2025**
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Portfolio-00d4ff?style=for-the-badge&logo=vercel)](https://portfolio-eta-lime-71.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-nikhilsai0803-a855f7?style=for-the-badge&logo=github)](https://github.com/nikhilsai0803)
