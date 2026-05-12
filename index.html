@@ -153,8 +153,6 @@ section{padding:7rem 2rem;position:relative}
 /* PROJECTS */
 #projects{background:var(--bg-surf)}
 .projects-grid{max-width:1200px;margin:4rem auto 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2rem}
-.github-loading{text-align:center;padding:3.5rem;font-family:var(--f-mono);color:var(--c-blue);letter-spacing:.18em;animation:pulse 1.8s ease-in-out infinite;grid-column:1/-1}
-@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
 .project-card{background:var(--bg-card);border:1px solid var(--border);backdrop-filter:blur(18px);border-radius:var(--r-lg);padding:2.2rem;position:relative;overflow:hidden;transition:all .4s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d;cursor:pointer}
 .project-card.featured{border-color:rgba(162,89,255,0.28);background:linear-gradient(135deg,rgba(7,14,28,0.9),rgba(162,89,255,0.04))}
 .project-card:hover{border-color:rgba(0,198,255,0.4);transform:translateY(-10px);box-shadow:0 24px 70px rgba(0,198,255,0.18),var(--shadow-card)}
@@ -350,10 +348,8 @@ html,body{max-width:100%;overflow-x:hidden}
   <div style="max-width:1200px;margin:0 auto;">
     <div class="section-label reveal">03 // PROJECTS</div>
     <h2 class="section-title reveal">What I've Built</h2>
-    <p class="reveal" style="color:var(--text-lo);margin-bottom:1rem;font-weight:300;">Real projects that solve real problems — fetched live from GitHub.</p>
-    <div class="projects-grid" id="projects-grid">
-      <div class="github-loading">⟳ FETCHING FROM GITHUB...</div>
-    </div>
+    <p class="reveal" style="color:var(--text-lo);margin-bottom:1rem;font-weight:300;">Real projects that solve real problems.</p>
+    <div class="projects-grid" id="projects-grid"></div>
   </div>
 </section>
 
@@ -435,12 +431,56 @@ const certs = [
   {icon:'🔌',name:'IoT Workshop – SPYRO 5.0',by:'CSI (Computer Society of India)'},
 ];
 
-const featuredProjects = [
-  {num:'P.01',title:'Smart Resume AI Analyzer',featured:true,desc:'Built a resume analysis system using NLP and Scikit-learn that extracts key information and generates an ATS score with improvement suggestions.',tags:['Python','NLP','Scikit-learn','Hugging Face'],github:'https://github.com/nikhilsai0803/Smart-Resume-AI-Analyzer',demo:'https://huggingface.co/spaces/sharmasai12/Smart-resume'},
-  {num:'P.02',title:'AI Generated vs. Real Image Classifier',featured:true,desc:'Developed a CNN-based deep learning model to classify AI-generated and real images with optimized preprocessing and evaluation metrics.',tags:['Python','CNN','Keras','Deep Learning','Hugging Face'],github:'https://github.com/nikhilsai0803/AI-Generated-vs-Real-Image-Classifier',demo:'https://huggingface.co/spaces/sharmasai12/AI_vs_REAL'},
-  {num:'P.03',title:'Octagon Oracle – UFC Fight Forecast',desc:'Developed a machine learning model to predict UFC fight outcomes using historical fight data and fighter statistics.',tags:['Python','Scikit-learn','Pandas','ML'],github:'https://github.com/nikhilsai0803/Octagon-Oracle-UFC-Fight-Forecast--Machine-Learning-Powered'},
-  {num:'P.04',title:'Unveiling Climate Change Dynamics',featured:true,desc:'An exploratory data analysis project studying Earth surface temperature trends using the GlobalTemperatures dataset with statistical analysis and visualizations.',tags:['Python','Jupyter Notebook','Pandas','EDA','Climate Data','Hugging Face'],github:'https://github.com/nikhilsai0803/unveiling-climate-change-dynamic',demo:'https://huggingface.co/spaces/sharmasai12/Unveiling-climate-change-dynamics-through-earth-surface-temperature-analysis'},
-  {num:'P.05',title:'Java Real-Time Mini Project',desc:'A real-time Java mini project demonstrating core Java concepts including OOP, data structures, and practical application development.',tags:['Java','OOP','Data Structures','Real-Time'],github:'https://github.com/nikhilsai0803/JavaRealTimeMiniProject3'},
+// ─── MANUAL PROJECTS (edit these directly — no GitHub API needed) ─────────────
+// To add a project: copy one block and fill in your details.
+// Set featured: true to show the "★ FEATURED" badge.
+// Leave demo: '' if there's no live demo link.
+const projects = [
+  {
+    num: 'P.01',
+    title: 'Smart Resume AI Analyzer',
+    featured: true,
+    desc: 'Built a resume analysis system using NLP and Scikit-learn that extracts key information and generates an ATS score with improvement suggestions.',
+    tags: ['Python', 'NLP', 'Scikit-learn', 'Hugging Face'],
+    github: 'https://github.com/nikhilsai0803/Smart-Resume-AI-Analyzer',
+    demo: 'https://huggingface.co/spaces/sharmasai12/Smart-resume',
+  },
+  {
+    num: 'P.02',
+    title: 'AI Generated vs. Real Image Classifier',
+    featured: true,
+    desc: 'Developed a CNN-based deep learning model to classify AI-generated and real images with optimized preprocessing and evaluation metrics.',
+    tags: ['Python', 'CNN', 'Keras', 'Deep Learning', 'Hugging Face'],
+    github: 'https://github.com/nikhilsai0803/AI-Generated-vs-Real-Image-Classifier',
+    demo: 'https://huggingface.co/spaces/sharmasai12/AI_vs_REAL',
+  },
+  {
+    num: 'P.03',
+    title: 'Octagon Oracle – UFC Fight Forecast',
+    featured: false,
+    desc: 'Developed a machine learning model to predict UFC fight outcomes using historical fight data and fighter statistics.',
+    tags: ['Python', 'Scikit-learn', 'Pandas', 'ML'],
+    github: 'https://github.com/nikhilsai0803/Octagon-Oracle-UFC-Fight-Forecast--Machine-Learning-Powered',
+    demo: '',
+  },
+  {
+    num: 'P.04',
+    title: 'Unveiling Climate Change Dynamics',
+    featured: true,
+    desc: 'An exploratory data analysis project studying Earth surface temperature trends using the GlobalTemperatures dataset with statistical analysis and visualizations.',
+    tags: ['Python', 'Jupyter Notebook', 'Pandas', 'EDA', 'Climate Data'],
+    github: 'https://github.com/nikhilsai0803/unveiling-climate-change-dynamic',
+    demo: 'https://huggingface.co/spaces/sharmasai12/Unveiling-climate-change-dynamics-through-earth-surface-temperature-analysis',
+  },
+  {
+    num: 'P.05',
+    title: 'Java Real-Time Mini Project',
+    featured: false,
+    desc: 'A real-time Java mini project demonstrating core Java concepts including OOP, data structures, and practical application development.',
+    tags: ['Java', 'OOP', 'Data Structures', 'Real-Time'],
+    github: 'https://github.com/nikhilsai0803/JavaRealTimeMiniProject3',
+    demo: '',
+  },
 ];
 
 // ─── RENDER SKILLS ───────────────────────────────────────────────────────────
@@ -453,51 +493,36 @@ skills.forEach((s,i)=>{
   skillsGrid.appendChild(el);
 });
 
-// ─── FETCH GITHUB PROJECTS ───────────────────────────────────────────────────
-async function fetchGitHubProjects(){
-  const grid=document.getElementById('projects-grid');
-  try{
-    const res=await fetch('https://api.github.com/users/nikhilsai0803/repos?sort=updated&per_page=20');
-    const repos=await res.json();
-    const repoMap={};
-    repos.forEach(r=>{repoMap[r.name.toLowerCase()]=r.html_url;});
-    const allProjects=featuredProjects.map(p=>{
-      const key=Object.keys(repoMap).find(k=>p.title.toLowerCase().replace(/[^a-z0-9]/g,'').includes(k.replace(/[^a-z0-9]/g,'')));
-      return{...p,github:key?repoMap[key]:p.github};
-    });
-    renderProjects(grid,allProjects.slice(0,5));
-  }catch(e){renderProjects(grid,featuredProjects);}
-}
-
-function renderProjects(grid,projects){
-  grid.innerHTML='';
-  projects.forEach((p,i)=>{
-    const el=document.createElement('div');
-    el.className=`project-card reveal${p.featured?' featured':''}`;
-    el.style.transitionDelay=`${i*.1}s`;
-    el.innerHTML=`
+// ─── RENDER PROJECTS (manual) ─────────────────────────────────────────────────
+function renderProjects(grid, projectList) {
+  grid.innerHTML = '';
+  projectList.forEach((p, i) => {
+    const el = document.createElement('div');
+    el.className = `project-card reveal${p.featured ? ' featured' : ''}`;
+    el.style.transitionDelay = `${i * .1}s`;
+    el.innerHTML = `
       <div class="project-glow"></div>
-      ${p.featured?'<span class="project-featured-badge">★ FEATURED</span>':''}
+      ${p.featured ? '<span class="project-featured-badge">★ FEATURED</span>' : ''}
       <div class="project-num">${p.num}</div>
       <div class="project-title">${p.title.toUpperCase()}</div>
       <div class="project-desc">${p.desc}</div>
-      <div class="project-tags">${p.tags.map(t=>`<span class="project-tag">${t}</span>`).join('')}</div>
+      <div class="project-tags">${p.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}</div>
       <div class="project-links">
         <a href="${p.github}" target="_blank" class="project-link">⬡ VIEW ON GITHUB</a>
-        ${p.demo?`<a href="${p.demo}" target="_blank" class="project-link-demo">⚡ LIVE DEMO</a>`:''}
+        ${p.demo ? `<a href="${p.demo}" target="_blank" class="project-link-demo">⚡ LIVE DEMO</a>` : ''}
       </div>`;
-    el.addEventListener('mousemove',e=>{
-      if(e.target.closest('a'))return;
-      const r=el.getBoundingClientRect();
-      const x=(e.clientX-r.left)/r.width-.5;
-      const y=(e.clientY-r.top)/r.height-.5;
-      el.style.transform=`perspective(900px) rotateY(${x*12}deg) rotateX(${-y*8}deg) translateY(-10px)`;
+    el.addEventListener('mousemove', e => {
+      if (e.target.closest('a')) return;
+      const r = el.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5;
+      const y = (e.clientY - r.top) / r.height - .5;
+      el.style.transform = `perspective(900px) rotateY(${x * 12}deg) rotateX(${-y * 8}deg) translateY(-10px)`;
     });
-    el.addEventListener('mouseleave',()=>{el.style.transform='';});
-    el.querySelectorAll('a').forEach(a=>a.addEventListener('click',e=>e.stopPropagation()));
+    el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+    el.querySelectorAll('a').forEach(a => a.addEventListener('click', e => e.stopPropagation()));
     grid.appendChild(el);
   });
-  document.querySelectorAll('.project-card').forEach(el=>observer.observe(el));
+  document.querySelectorAll('.project-card').forEach(el => observer.observe(el));
 }
 
 // ─── RENDER TIMELINE ─────────────────────────────────────────────────────────
@@ -522,7 +547,7 @@ certs.forEach((c,i)=>{
 // ─── PRELOADER ───────────────────────────────────────────────────────────────
 const preBar=document.getElementById('pre-bar');
 const preText=document.getElementById('pre-text');
-const msgs=['LOADING PROJECTS...','CALIBRATING AI...','FETCHING GITHUB...','READY.'];
+const msgs=['LOADING PROJECTS...','CALIBRATING AI...','BUILDING PORTFOLIO...','READY.'];
 let prog=0;
 const preInterval=setInterval(()=>{
   prog+=Math.random()*15+5;
@@ -690,8 +715,9 @@ themeBtn.addEventListener('click',()=>{
 document.getElementById('hamburger').addEventListener('click',()=>{document.getElementById('nav-links').classList.toggle('open');});
 document.querySelectorAll('.nav-links a').forEach(a=>{a.addEventListener('click',()=>document.getElementById('nav-links').classList.remove('open'));});
 
-// ─── INIT ─────────────────────────────────────────────────────────────────────
-fetchGitHubProjects();
+// ─── INIT — render projects directly from the manual array ───────────────────
+const projectsGrid = document.getElementById('projects-grid');
+renderProjects(projectsGrid, projects);
 </script>
 </body>
 </html>
